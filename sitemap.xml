@@ -19,7 +19,7 @@
 
   <!-- Subpágina: Integración de Hardware Industrial -->
   <url>
-    <loc>https://stracta.prointegracion-hardware.html</loc>
+    <loc>https://stracta.pro/integracion-hardware.html</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -27,10 +27,18 @@
 
   <!-- Subpágina: Desarrollo Blazor y Radzen -->
   <url>
-    <loc>https://stracta.prodesarrollo-blazor-radzen.html</loc>
+    <loc>https://stracta.pro/desarrollo-blazor-radzen.html</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
+  </url>
+
+  <!-- Artículo: MVP Desarrollo IA -->
+  <url>
+    <loc>https://stracta.pro/mvp-desarrollo-ia.html</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
   </url>
 
 </urlset>
