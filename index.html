@@ -430,6 +430,63 @@ footer{
   *{transition:none !important; scroll-behavior:auto !important;}
 }
 </style>
+<style>
+/* ---------- formulario de contacto (sección cta-final) ---------- */
+.cta-grid{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:64px;
+  align-items:start;
+}
+@media (max-width:880px){ .cta-grid{grid-template-columns:1fr; gap:40px;} }
+
+.contact-form{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(245,243,239,0.16);
+  border-radius:3px;
+  padding:32px;
+  display:flex; flex-direction:column; gap:20px;
+}
+@media (max-width:640px){ .contact-form{padding:24px 20px;} }
+.contact-form h3{font-size:1.2rem; font-weight:600; color:var(--on-ink);}
+.field{display:flex; flex-direction:column; gap:8px;}
+.field label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.75rem;
+  color:var(--on-ink-muted);
+}
+.field input, .field textarea{
+  font-family:inherit; font-size:0.98rem;
+  color:var(--on-ink);
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(245,243,239,0.22);
+  border-radius:3px;
+  padding:13px 14px;
+  width:100%;
+  transition:border-color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+.field textarea{min-height:130px; resize:vertical;}
+.field input::placeholder, .field textarea::placeholder{color:#6F7883;}
+.field input:hover, .field textarea:hover{border-color:rgba(245,243,239,0.42);}
+.field input:focus, .field textarea:focus{
+  outline:none;
+  border-color:var(--blue-2);
+  background:rgba(255,255,255,0.09);
+  box-shadow:0 0 0 3px rgba(31,143,224,0.25);
+}
+.contact-form .btn{width:100%; border:1px solid transparent;}
+.contact-form .btn[disabled]{opacity:.6; cursor:wait;}
+.form-status{font-size:0.92rem; min-height:1.3em;}
+.form-status.ok{color:#6FD3A4;}
+.form-status.err{color:#FF9A6B;}
+.hp{position:absolute; left:-9999px;} /* honeypot anti-spam */
+.cta-alt{margin-top:0;}
+
+
+    
+</style>
+
+    
 </head>
 <body>
 
@@ -901,7 +958,9 @@ footer{
   </div>
 </section>
 
-<section class="cta-final" id="contacto">
+
+
+      <section class="cta-final" id="contacto">
   <div class="brick-field" aria-hidden="true">
     <svg viewBox="0 0 1200 500" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
       <g opacity="0.08">
@@ -1004,10 +1063,37 @@ footer{
       </g>
     </svg>
   </div>
-  <div class="wrap">
-    <h2>¿Construimos tu próximo sistema?</h2>
-    <p>Cuéntanos qué necesitas automatizar, medir o controlar. Respondemos con una propuesta concreta, no con un formulario genérico.</p>
-    <a href="mailto:contacto@stracta.pro" class="btn btn-primary">Escribir a contacto@stracta.pro</a>
+
+  <div class="wrap cta-grid">
+    <div>
+      <h2>¿Construimos tu próximo sistema?</h2>
+      <p>Cuéntanos qué necesitas automatizar, medir o controlar. Respondemos con una propuesta concreta, no con una respuesta genérica.</p>
+      <a href="mailto:contacto@stracta.pro" class="btn btn-ghost cta-alt">contacto@stracta.pro</a>
+    </div>
+
+    <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <h3>Escríbenos</h3>
+      <input type="hidden" name="access_key" value="f9da04c6-418e-4d86-bb03-d64c529187f7">
+      <input type="hidden" name="subject" value="Nuevo contacto desde stracta.pro">
+      <input type="hidden" name="from_name" value="Stracta Web">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="field">
+        <label for="cf-name">nombre</label>
+        <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Su nombre">
+      </div>
+      <div class="field">
+        <label for="cf-email">correo electrónico</label>
+        <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="usted@empresa.com">
+      </div>
+      <div class="field">
+        <label for="cf-message">mensaje</label>
+        <textarea id="cf-message" name="message" required placeholder="¿Qué necesitas automatizar, medir o controlar?"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+      <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 
